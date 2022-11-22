@@ -31,8 +31,9 @@ def execute_main():
     second_number = 10
     print(calculate_value(math_operation, first_number, second_number))
 
+    sum_list_operation = "addition"
     list_of_numbers_to_sum = [27, 35, 48, 60]
-    print(calculate_value(math_operation, *list_of_numbers_to_sum))
+    print(calculate_value(sum_list_operation, *list_of_numbers_to_sum))
 
     root_operation = "cube root"
     number_to_be_rooted = 729
