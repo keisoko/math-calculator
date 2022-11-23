@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class ConstantNamespace:
-    LIST_OPERATION = "addition"
+    LIST_OPERATION: str = "addition"
 
 
 constant = ConstantNamespace()
