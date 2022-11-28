@@ -1,10 +1,14 @@
+"""Simple implementation of the math calculator"""
+
 import math
 from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
 class ConstantNamespace:
-    LIST_OPERATION: str = "addition"
+    """Constant namespace"""
+
+    LIST_MATH_OPERATION: str = "addition"
 
 
 constant = ConstantNamespace()
@@ -24,6 +28,8 @@ def calculate_value(operator: str, *args: int) -> int | float | str:
             )
         case "exponent":
             return f"The result of raising {args[0]} to the power of {args[1]} is {args[0] ** args[1]:,}"
+        case "exp2":
+            return f"The result of raising 2 to the power of {args[0]} is {math.exp2(args[0]):,.0f}"
         case "modulo":
             return f"The remainder of the modulo operation between {args[0]} and {args[1]} is {args[0] % args[1]}"
         case "root":
@@ -41,7 +47,12 @@ def execute_main():
     print(calculate_value(math_operation, first_number, second_number))
 
     list_of_numbers_to_sum = [27, 35, 48, 60]
-    print(calculate_value(constant.LIST_OPERATION, *list_of_numbers_to_sum))
+    print(calculate_value(constant.LIST_MATH_OPERATION, *list_of_numbers_to_sum))
+
+    exp2_operation = "exp2"
+    list_of_exponents = [7, 8, 9, 10]
+    for exponent in list_of_exponents:
+        print(calculate_value(exp2_operation, exponent))
 
     root_operation = "cube root"
     number_to_be_rooted = 729
