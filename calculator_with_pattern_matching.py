@@ -15,6 +15,7 @@ constant = ConstantNamespace()
 
 
 def calculate_value(operator: str, *args: int) -> int | float | str:
+    """Math calculator"""
     match operator:
         case "addition":
             return f"The result of addition is {sum(args)}"
@@ -27,11 +28,17 @@ def calculate_value(operator: str, *args: int) -> int | float | str:
                 f"The result of dividing {args[0]} by {args[1]} is {args[0] / args[1]}"
             )
         case "exponent":
-            return f"The result of raising {args[0]} to the power of {args[1]} is {args[0] ** args[1]:,}"
+            return (
+                f"The result of raising {args[0]} to the power of {args[1]} "
+                f"is {args[0] ** args[1]:,}"
+            )
         case "exp2":
             return f"The result of raising 2 to the power of {args[0]} is {math.exp2(args[0]):,.0f}"
         case "modulo":
-            return f"The remainder of the modulo operation between {args[0]} and {args[1]} is {args[0] % args[1]}"
+            return (
+                f"The remainder of the modulo operation between {args[0]} "
+                f"and {args[1]} is {args[0] % args[1]}"
+            )
         case "root":
             return f"The square root of {args[0]} is {math.sqrt(args[0])}"
         case "cube root":
@@ -41,6 +48,7 @@ def calculate_value(operator: str, *args: int) -> int | float | str:
 
 
 def execute_main():
+    """Main program"""
     math_operation = "addition"
     first_number = 27
     second_number = 10
